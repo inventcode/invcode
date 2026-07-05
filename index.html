@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Инвенткод — код пишут все, мы решаем вашу задачу</title>
+<meta name="description" content="Веб-студия Инвенткод: разработка веб-сервисов, мобильные приложения, DevOps, внедрение генеративного ИИ (GenAI) в контуре клиента. Работаем на российских облаках и в вашем стеке.">
+<link rel="canonical" href="https://invcode.ru/">
+<meta property="og:title" content="Инвенткод — веб-студия">
+<meta property="og:description" content="Код пишут все. Мы решаем вашу задачу. Веб-разработка, DevOps, генеративный ИИ в вашем контуре.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Инвенткод">
+<meta property="og:url" content="https://invcode.ru/">
+<meta property="og:image" content="https://invcode.ru/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Инвенткод — веб-студия">
+<meta name="twitter:description" content="Код пишут все. Мы решаем вашу задачу. Генеративный ИИ в вашем контуре.">
+<meta name="twitter:image" content="https://invcode.ru/og-image.png">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- Верификация: вставьте коды после регистрации в вебмастерах -->
+<!-- <meta name="yandex-verification" content="ВАШ_КОД"> -->
+<!-- <meta name="google-site-verification" content="ВАШ_КОД"> -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"ООО «ИНВЕНТКОД»","alternateName":"Инвенткод","url":"https://invcode.ru/","logo":"https://invcode.ru/favicon.svg","email":"inventcode@yandex.ru","telephone":"+7 (999) 055-86-48","address":{"@type":"PostalAddress","addressCountry":"RU","addressRegion":"Орловская область","addressLocality":"Орёл","postalCode":"302006","streetAddress":"ул. Московская, д. 114А"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Инвенткод","url":"https://invcode.ru/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Получу ли я исходный код?","acceptedAnswer":{"@type":"Answer","text":"Да. Исходный код полностью передаётся вам. В формате эксклюзивной разработки — закрытый контур, весь код ваша собственность."}},
+{"@type":"Question","name":"Как формируется цена?","acceptedAnswer":{"@type":"Answer","text":"Фиксированная смета после аудита и согласования ТЗ, поэтапная оплата. Цены на сайте — ориентир «от»."}},
+{"@type":"Question","name":"Какие сроки?","acceptedAnswer":{"@type":"Answer","text":"MVP — от нескольких недель, полноценная платформа — от нескольких месяцев. Точные сроки фиксируем в договоре."}},
+{"@type":"Question","name":"Работаете по договору и с НДС?","acceptedAnswer":{"@type":"Answer","text":"Да, работаем официально по договору. Детали по НДС зависят от системы налогообложения — уточним при обсуждении."}},
+{"@type":"Question","name":"Что с поддержкой после запуска?","acceptedAnswer":{"@type":"Answer","text":"Предлагаем сопровождение и развитие по SLA — отдельным договором на обслуживание."}},
+{"@type":"Question","name":"Работаете удалённо по всей России?","acceptedAnswer":{"@type":"Answer","text":"Да, работаем со всей Россией удалённо."}}
+]}
+</script>
+<!-- Аналитика: вставьте код Яндекс.Метрики / Google Analytics перед </head> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0B; --bg2:#111114; --card:#16161A; --border:#26262C;
+  --text:#F5F5F7; --muted:#9A9AA5; --accent:#00E5A0; --accent-dim:rgba(0,229,160,.12);
+  --max:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.mono{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:13px;letter-spacing:1px;text-transform:lowercase}
+section{padding:96px 0;border-top:1px solid var(--border)}
+h2{font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin:14px 0 8px}
+.lead{color:var(--muted);max-width:680px;font-size:18px}
+.grid{display:grid;gap:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;border:1px solid transparent;transition:.2s;font-family:inherit}
+.btn-primary{background:var(--accent);color:#04110C}
+.btn-primary:hover{box-shadow:0 0 0 4px var(--accent-dim);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--border);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.06em;font-size:18px}
+.brand svg{height:34px;width:auto;color:var(--text)}
+.menu{display:flex;gap:28px;list-style:none}
+.menu a{color:var(--muted);font-size:15px;font-weight:500;transition:.2s}
+.menu a:hover{color:var(--text)}
+.nav .btn{padding:10px 18px}
+.burger{display:none;background:none;border:0;color:var(--text);font-size:26px;cursor:pointer}
+
+/* hero */
+.hero{position:relative;padding:120px 0 110px;border-top:0;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-160px;right:-120px;width:560px;height:560px;background:radial-gradient(circle,var(--accent-dim),transparent 70%);filter:blur(20px);z-index:-1}
+.hero h1{font-size:clamp(40px,7vw,82px);font-weight:800;line-height:1.02;letter-spacing:-.03em}
+.hero h1 .accent{color:var(--accent)}
+.hero .lead{margin:26px 0 34px;font-size:clamp(17px,2.2vw,21px)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:40px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;transition:.25s}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.card h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.card p{color:var(--muted);font-size:15px}
+.card .ico{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:11px;margin-bottom:16px;color:var(--accent);background:var(--accent-dim)}
+.card .ico svg{width:23px;height:23px}
+.ico svg *,.logo-tile svg *,.diagram svg .ln *{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* hero bg */
+.hero-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.hero-bg .bigmark{position:absolute;right:-40px;top:30px;width:480px;height:480px;color:var(--accent);opacity:.07}
+.hero-bg .grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:46px 46px;-webkit-mask:radial-gradient(circle at 72% 32%,#000,transparent 65%);mask:radial-gradient(circle at 72% 32%,#000,transparent 65%);opacity:.4}
+.hero-bg .orb{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--accent-dim),transparent 70%);filter:blur(30px);left:-120px;bottom:-160px;animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-26px)}}
+@media(prefers-reduced-motion:reduce){.hero-bg .orb{animation:none}}
+/* logo wall */
+.logos{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.logo-tile{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--border);border-radius:10px;padding:11px 16px;background:var(--card);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:14px;transition:.2s}
+.logo-tile:hover{border-color:var(--accent);color:var(--text)}
+.logo-tile svg{width:18px;height:18px;color:var(--accent);flex:0 0 auto}
+.stackgroup .lbl{display:flex;align-items:center;gap:8px}
+.stackgroup .lbl svg{width:16px;height:16px;color:var(--accent)}
+/* diagram */
+.diagram{margin-top:26px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;overflow-x:auto}
+.diagram svg{width:100%;max-width:720px;height:auto;display:block;margin:0 auto}
+.diagram .perim{fill:var(--accent-dim);stroke:var(--accent);stroke-width:1.5;stroke-dasharray:7 6}
+.diagram .box{fill:var(--card);stroke:var(--border);stroke-width:1.2}
+.diagram .lbl{fill:var(--text);font-family:'Manrope',sans-serif;font-size:14px;font-weight:700}
+.diagram .sub{fill:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px}
+.diagram .acc{fill:var(--accent);font-family:'JetBrains Mono',monospace;font-size:12px}
+.diagram .ln{color:var(--muted)}
+.diagram .block{stroke:#ff5b6e;stroke-width:2}
+
+/* approach */
+.approach .thesis{font-size:clamp(24px,3.2vw,36px);font-weight:800;line-height:1.15;letter-spacing:-.02em;max-width:880px;margin-top:18px}
+.approach .thesis .accent{color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}
+.panel h3{font-size:16px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:500;margin-bottom:14px}
+.panel ul{list-style:none;color:var(--muted);font-size:15px}
+.panel li{padding:7px 0 7px 22px;position:relative}
+.panel li::before{content:"→";position:absolute;left:0;color:var(--accent)}
+
+/* steps */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:40px}
+.step{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:13px}
+.step h4{margin-top:8px;font-size:15px;font-weight:700}
+
+/* privacy highlight */
+.highlight{margin-top:26px;background:linear-gradient(120deg,var(--accent-dim),transparent);border:1px solid var(--accent);border-radius:14px;padding:26px}
+.highlight strong{color:var(--accent)}
+
+/* stats */
+.stats{display:flex;gap:48px;flex-wrap:wrap;margin-top:30px}
+.stat .num{font-size:44px;font-weight:800;color:var(--accent);font-family:'JetBrains Mono',monospace}
+.stat .lbl{color:var(--muted);font-size:14px}
+
+/* founder */
+.founder{display:grid;grid-template-columns:1fr;gap:28px;align-items:start;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;margin-top:30px}
+.avatar{width:120px;height:120px;border-radius:50%;border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px;text-align:center}
+.founder .quote{font-size:19px;line-height:1.5}
+.founder .name{margin-top:16px;font-weight:800;font-size:17px}
+.founder .role{color:var(--muted);font-size:14px}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.chip{border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-size:14px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.stackgroup{margin-top:30px}
+.stackgroup .lbl{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:13px}
+
+/* prices */
+.priceblock{margin-top:30px}
+.priceblock h3{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:14px;font-weight:500;margin:26px 0 12px;text-transform:uppercase;letter-spacing:1px}
+.prow{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline}
+.prow .pname{font-size:15px}
+.prow .pval{white-space:nowrap;font-weight:700;font-family:'JetBrains Mono',monospace}
+.note{color:var(--muted);font-size:13px;margin-top:20px}
+
+/* faq */
+.faq details{border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-top:12px;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:700;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--muted);margin-top:12px;font-size:15px}
+
+/* form */
+.formwrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.formwrap .full{grid-column:1/-1}
+input,select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;color:var(--text);font-family:inherit;font-size:15px}
+input:focus,select,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:110px;resize:vertical}
+.consent{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px}
+.consent input{width:auto;margin-top:3px}
+.formmsg{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:14px;margin-top:10px;display:none}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:60px 0 40px;color:var(--muted)}
+.fcols{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px}
+.footer-brand svg{height:30px;color:var(--text)}
+footer a:hover{color:var(--accent)}
+.ph{color:#6b6b78;border-bottom:1px dashed #45454f}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:.6s}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:820px){
+  .menu,.nav .btn.desk{display:none}
+  .burger{display:block}
+  .menu.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--bg2);padding:20px 24px;gap:18px;border-bottom:1px solid var(--border)}
+  .two,.founder,.formwrap{grid-template-columns:1fr}
+  .founder{grid-template-columns:1fr}
+  .stats{gap:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- inline monogram symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="435 286 143 191">
+    <path fill="currentColor" d="M515.568115,362.582520 C508.133575,370.236511 500.917450,377.613556 493.765533,385.052338 C489.181366,389.820374 483.188110,390.647766 478.574371,387.021393 C474.128357,383.526886 473.448669,377.672821 477.046936,372.273529 C478.419769,370.213562 480.024475,368.260345 481.770477,366.503998 C505.613831,342.519226 529.504883,318.581879 553.372559,294.621307 C557.779053,290.197693 562.075684,288.922058 566.849365,291.090240 C571.538147,293.219879 573.052612,297.421600 573.055725,302.187622 C573.085754,348.173401 573.064575,394.159210 573.043091,440.145020 C573.040833,445.005524 571.399170,449.076782 566.651672,451.064697 C561.765503,453.110626 557.574402,451.600098 553.951294,447.953644 C547.845581,441.808594 541.679871,435.723206 535.562500,429.589661 C530.413879,424.427490 529.828491,418.800385 533.898682,414.060974 C537.666260,409.673828 543.899780,409.541290 549.576904,413.724426 C549.974487,414.017365 550.387817,414.289093 551.309998,414.928711 C551.309998,385.582886 551.309998,356.636566 551.309998,327.628723 C539.476318,339.197937 527.644958,350.764832 515.568115,362.582520 z"/>
+    <path fill="currentColor" d="M440.686707,345.999939 C440.686005,338.002655 440.725647,330.505066 440.670319,323.008240 C440.636688,318.450745 442.219238,314.798828 446.454498,312.793427 C451.038849,310.622650 455.332153,311.572266 458.895386,314.997192 C465.738770,321.575012 472.548065,328.197479 479.136749,335.027863 C483.244598,339.286499 483.347168,345.341797 479.917419,349.613556 C476.761383,353.544373 470.910553,354.270050 465.822968,351.315094 C464.686890,350.655273 463.639740,349.842224 462.166626,348.837006 C462.166626,378.003662 462.166626,406.848297 462.166626,436.026215 C464.143616,435.694336 465.159363,434.137756 466.347778,432.942169 C483.492310,415.693451 500.620087,398.428070 517.736633,381.151611 C524.271545,374.555603 533.059326,374.403107 537.033630,380.858887 C540.013611,385.699493 539.107727,390.630432 534.704224,394.783142 C512.769287,415.469147 491.885773,437.211578 470.655640,458.605957 C467.019684,462.269989 463.294556,465.846130 459.586243,469.437683 C455.930756,472.978119 451.582397,474.382385 446.804016,472.440491 C442.042786,470.505585 440.659363,466.378418 440.665802,461.458130 C440.715942,423.138794 440.689667,384.819336 440.686707,345.999939 z"/>
+  </symbol>
+  <symbol id="i-web" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 13l-2 2 2 2"/><path d="M16 13l2 2-2 2"/></symbol>
+  <symbol id="i-mobile" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></symbol>
+  <symbol id="i-devops" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.5 6.5l2 2M15.5 15.5l2 2M17.5 6.5l-2 2M8.5 15.5l-2 2"/></symbol>
+  <symbol id="i-design" viewBox="0 0 24 24"><path d="M4 20l3-1 11-11-2-2L5 17l-1 3z"/><path d="M14 6l2 2"/></symbol>
+  <symbol id="i-startup" viewBox="0 0 24 24"><path d="M12 3c2.5 1.5 4 4.5 4 8l-4 3-4-3c0-3.5 1.5-6.5 4-8z"/><path d="M8 16l-2 4M16 16l2 4"/><circle cx="12" cy="9" r="1.3"/></symbol>
+  <symbol id="i-ai" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M10 3v3M14 3v3M10 18v3M14 18v3M3 10h3M3 14h3M18 10h3M18 14h3"/></symbol>
+  <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17.5" cy="9" r="2.2"/><path d="M16 14.5a5 5 0 0 1 5 5"/></symbol>
+  <symbol id="i-analytics" viewBox="0 0 24 24"><path d="M4 20V11M9 20V5M14 20v-7M19 20V9"/><path d="M3 20h18"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.4A3.5 3.5 0 0 1 17.5 18z"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 7V4M15 7V4M7 7h10v4a5 5 0 0 1-10 0z"/><path d="M12 16v4"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="17" cy="9" r="2"/><path d="M6 7v10M8 5h4a3 3 0 0 1 3 3"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 4z"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><path d="M5 6c0 1.7 3.1 3 7 3s7-1.3 7-3-3.1-3-7-3-7 1.3-7 3z"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></symbol>
+  <symbol id="i-audio" viewBox="0 0 24 24"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M5 9a7 7 0 0 1 12-3l2 2"/><path d="M19 15a7 7 0 0 1-12 3l-2-2"/><path d="M19 4v4h-4M5 20v-4h4"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><svg><use href="#mark"/></svg> ИНВЕНТКОД</a>
+    <ul class="menu" id="menu">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#approach">Подход</a></li>
+      <li><a href="#prices">Цены</a></li>
+      <li><a href="#founder">О студии</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <button class="btn btn-primary desk" onclick="openForm('Обсудить проект')">Обсудить проект</button>
+    <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="hero-bg">
+    <div class="grid"></div>
+    <div class="orb"></div>
+    <svg class="bigmark"><use href="#mark"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="mono">// inventcode — веб-студия</span>
+    <h1>Код пишут все.<br><span class="accent">Мы решаем вашу задачу.</span></h1>
+    <p class="lead">Продукты, которые решают, а не просто работают. Встраиваем генеративный ИИ в процессы и работаем в вашем контуре — на ваших облаках и системах.</p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" onclick="openForm('Обсудить проект')">Обсудить проект</button>
+      <a class="btn btn-ghost" href="#prices">Смотреть цены</a>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <span class="mono">// задачи</span>
+    <h2>Задачи, которые мы решаем</h2>
+    <div class="cards">
+      <div class="card"><h3>Запуск стартапа</h3><p>Реализуем идею: продуктовая команда, MVP и проверка гипотез.</p></div>
+      <div class="card"><h3>Связь с клиентами</h3><p>Упрощаем коммуникацию — личные кабинеты, порталы, сервисы.</p></div>
+      <div class="card"><h3>Автоматизация</h3><p>Убираем ручную рутину в процессах компании.</p></div>
+      <div class="card"><h3>Редизайн сервисов</h3><p>Обновляем интерфейсы и логику существующих продуктов.</p></div>
+      <div class="card"><h3>Бизнес в онлайн</h3><p>Выводим бизнес в интернет — от сайта до полноценной платформы.</p></div>
+      <div class="card"><h3>Миграция в облако</h3><p>Переносим инфраструктуру в российские облака.</p></div>
+      <div class="card"><h3>Усиление команды</h3><p>Выделенная команда или специалисты в вашу разработку.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="approach" class="approach reveal">
+  <div class="wrap">
+    <span class="mono">// подход</span>
+    <h2>Изобретательность вместо шаблонов</h2>
+    <p class="thesis">Код больше не дефицит. С ИИ он пишется быстро и дёшево. Дефицитным стало другое — <span class="accent">решить, что строить и что не строить.</span></p>
+    <div class="two">
+      <div class="panel">
+        <h3>// что это значит на практике</h3>
+        <ul>
+          <li>Решаем, какие фичи не нужны</li>
+          <li>Находим самый дешёвый способ проверить гипотезу</li>
+          <li>Отвечаем за бизнес-метрику, а не за число экранов</li>
+          <li>Останавливаем то, что не окупится</li>
+          <li>ИИ используем как инструмент — а сэкономленное вкладываем в то, чтобы продукт был верным</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>// чем подкреплено</h3>
+        <ul>
+          <li>20+ лет в средах, где неверное продуктовое решение стоит дорого — банки и финтех</li>
+          <li>Управленческий опыт: крупные команды и проекты</li>
+          <li>Личная вовлечённость основателя в каждый проект</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="reveal">
+  <div class="wrap">
+    <span class="mono">// услуги</span>
+    <h2>Что мы делаем</h2>
+    <div class="cards">
+      <div class="card"><span class="ico"><svg><use href="#i-web"/></svg></span><h3>Веб-разработка</h3><p>Сайты, порталы, конфигураторы, ERP, SaaS. Интеграция backend-систем в одно API. Автоматизация процессов.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-mobile"/></svg></span><h3>Мобильная разработка</h3><p>Нативные и кроссплатформенные приложения для клиентов и сотрудников.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-devops"/></svg></span><h3>DevOps / SRE</h3><p>CI/CD, проверка кода на уязвимости, устранение security-угроз, надёжность инфраструктуры.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-design"/></svg></span><h3>Дизайн</h3><p>Удобные адаптивные интерфейсы сайтов, приложений и сервисов.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-startup"/></svg></span><h3>Стартапы</h3><p>Продуктовая команда, MVP и прототип, гибкие методологии, проверка гипотез.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-ai"/></svg></span><h3>Генеративный ИИ (GenAI)</h3><p>Чат-боты и ассистенты, RAG на ваших данных, транскрибация, автоматизация. В контуре клиента.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-team"/></svg></span><h3>ИТ-аутсорсинг</h3><p>Выделенная команда и специалисты (аналитики, back/front, QA, DevOps) по модели Time &amp; Material.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-analytics"/></svg></span><h3>Аналитика</h3><p>Системный и бизнес-анализ, проектирование, ТЗ, веб-аналитика.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <span class="mono">// технологический фокус</span>
+    <h2>Работаем в вашем контуре</h2>
+    <div class="cards">
+      <div class="card"><span class="ico"><svg><use href="#i-cloud"/></svg></span><h3>Российские облака</h3><p>VK Cloud, Yandex Cloud, Cloud.ru, MWS Cloud, Selectel — в т.ч. с сертификацией ФСТЭК/ФСБ. Serverless-подход.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-plug"/></svg></span><h3>Инструменты клиента</h3><p>Работаем в принятом у вас стеке, включая 1С:ERP, Галактика, Турбо, Битрикс24. Не навязываем чужое.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-layers"/></svg></span><h3>Кроссплатформа</h3><p>Flutter (Android + iOS): быстрее в сторы, ниже затраты на поддержку.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-lock"/></svg></span><h3>Эксклюзивная разработка</h3><p>Закрытый контур, весь код — ваша собственность. Ни один внешний инструмент не касается проекта.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-branch"/></svg></span><h3>DevOps-практики</h3><p>CI/CD, Infrastructure as Code, Kubernetes, High Availability, Disaster Recovery.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <span class="mono">// генеративный ИИ</span>
+    <h2>ИИ в процессах — в вашем контуре</h2>
+    <p class="lead">Генеративный ИИ (GenAI) на базе больших языковых моделей (LLM) — класс решений, на который сформировался устойчивый спрос. Прикладные сценарии для бизнеса:</p>
+    <div class="cards">
+      <div class="card"><span class="ico"><svg><use href="#i-chat"/></svg></span><h3>Чат-боты и ассистенты</h3><p>Поддержка клиентов и внутренние ассистенты для сотрудников.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-db"/></svg></span><h3>Ассистент на ваших данных</h3><p>RAG и дообучение: ответы строго по вашим документам, с минимизацией галлюцинаций.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-audio"/></svg></span><h3>Аудио и видео</h3><p>Транскрибация и анализ звонков, встреч, протоколы, поиск по записям.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-doc"/></svg></span><h3>Документы</h3><p>Извлечение данных, классификация, суммаризация, маршрутизация обращений.</p></div>
+      <div class="card"><span class="ico"><svg><use href="#i-auto"/></svg></span><h3>Автоматизация рутины</h3><p>ИИ-автоматизация процессов без переписывания ваших систем.</p></div>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 720 250" role="img" aria-label="Схема: данные не покидают контур клиента">
+        <defs><marker id="a" markerWidth="9" markerHeight="9" refX="6.5" refY="4" orient="auto"><path d="M0 0l7 4-7 4z" fill="#9A9AA5"/></marker></defs>
+        <!-- периметр -->
+        <rect class="perim" x="24" y="40" width="432" height="196" rx="16"/>
+        <text class="acc" x="44" y="66">// периметр клиента</text>
+        <!-- верхние блоки -->
+        <rect class="box" x="44" y="78" width="176" height="58" rx="10"/>
+        <text class="lbl" x="60" y="104">Ваши данные</text>
+        <text class="sub" x="60" y="122">документы · базы · записи</text>
+        <rect class="box" x="256" y="78" width="176" height="58" rx="10"/>
+        <text class="lbl" x="272" y="104">LLM / модель</text>
+        <text class="sub" x="272" y="122">self-hosted, on-prem</text>
+        <!-- нижний блок -->
+        <rect class="box" x="140" y="170" width="200" height="46" rx="10"/>
+        <text class="lbl" x="158" y="198">Ответы · автоматизация</text>
+        <!-- стрелки -->
+        <g class="ln">
+          <path d="M220 107 H252" marker-end="url(#a)"/>
+          <path d="M132 136 V158 H205 V170" marker-end="url(#a)"/>
+          <path d="M344 136 V158 H275 V170" marker-end="url(#a)"/>
+        </g>
+        <!-- внешние сервисы (вне периметра) -->
+        <rect class="box" x="516" y="78" width="172" height="58" rx="10"/>
+        <text class="lbl" x="532" y="104">Внешние сервисы</text>
+        <text class="sub" x="532" y="122">облачные ИИ-API</text>
+        <line class="block" x1="468" y1="88" x2="506" y2="126"/>
+        <line class="block" x1="506" y1="88" x2="468" y2="126"/>
+        <text class="sub" x="460" y="152" style="fill:#ff5b6e">данные наружу не уходят</text>
+      </svg>
+    </div>
+
+    <div class="highlight">
+      <strong>Приватность.</strong> Строим ИИ-решения, не выходящие за периметр клиента: локальные / self-hosted модели (on-prem или в российском приватном облаке). Конфиденциальные данные остаются у вас и никогда не покидают ваш контур.
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <span class="mono">// форматы работы</span>
+    <h2>Два формата</h2>
+    <div class="two">
+      <div class="panel"><h3>// быстрый запуск</h3><ul><li>MVP и проверка гипотез</li><li>Скорость выхода на рынок</li><li>Итеративная разработка</li></ul></div>
+      <div class="panel"><h3>// эксклюзивная разработка</h3><ul><li>Закрытый контур</li><li>Полный контроль и владение кодом</li><li>Для требований к безопасности</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <span class="mono">// процесс</span>
+    <h2>Как мы работаем</h2>
+    <div class="steps">
+      <div class="step"><h4>Аналитика</h4></div>
+      <div class="step"><h4>Проектирование</h4></div>
+      <div class="step"><h4>Дизайн</h4></div>
+      <div class="step"><h4>Разработка</h4></div>
+      <div class="step"><h4>Тестирование</h4></div>
+      <div class="step"><h4>Поддержка</h4></div>
+    </div>
+  </div>
+</section>
+
+<section id="founder" class="reveal">
+  <div class="wrap">
+    <span class="mono">// об основателе</span>
+    <h2>Кто стоит за студией</h2>
+    <div class="founder">
+      <div>
+        <p class="quote">«За 20 с лишним лет я строил продукты там, где цена ошибки максимальна — в крупных банках, финтех-стартапах и корпорациях. Эта среда приучает к надёжности, безопасности и масштабу. Параллельно вёл исследовательские проекты на фронтире — блокчейн, ИИ и другие технологии, — поэтому смотрю на задачи шире одной отрасли.»</p>
+        <div class="name">Алексей Селихов</div>
+        <div class="role">Основатель Инвенткод</div>
+        <div class="stats">
+          <div class="stat"><div class="num" data-count="20">0</div><div class="lbl">лет в разработке</div></div>
+          <div class="stat"><div class="num">2003</div><div class="lbl">с этого года</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <span class="mono">// стек</span>
+    <h2>Технологии</h2>
+    <div class="stackgroup"><div class="lbl"><svg><use href="#i-web"/></svg> backend / frontend / mobile / devops</div>
+      <div class="logos">
+        <span class="logo-tile">Node.js</span><span class="logo-tile">Python</span><span class="logo-tile">Go</span><span class="logo-tile">PHP</span><span class="logo-tile">React</span><span class="logo-tile">Vue</span>
+        <span class="logo-tile"><svg><use href="#i-layers"/></svg>Flutter</span><span class="logo-tile"><svg><use href="#i-devops"/></svg>Kubernetes</span><span class="logo-tile"><svg><use href="#i-cloud"/></svg>Docker</span><span class="logo-tile"><svg><use href="#i-branch"/></svg>CI/CD</span><span class="logo-tile">IaC</span>
+      </div>
+    </div>
+    <div class="stackgroup"><div class="lbl"><svg><use href="#i-cloud"/></svg> российские облака — работаем в контуре клиента</div>
+      <div class="logos">
+        <span class="logo-tile"><svg><use href="#i-cloud"/></svg>VK Cloud</span><span class="logo-tile"><svg><use href="#i-cloud"/></svg>Yandex Cloud</span><span class="logo-tile"><svg><use href="#i-cloud"/></svg>Cloud.ru</span><span class="logo-tile"><svg><use href="#i-cloud"/></svg>MWS Cloud</span><span class="logo-tile"><svg><use href="#i-cloud"/></svg>Selectel</span>
+      </div>
+    </div>
+    <div class="stackgroup"><div class="lbl"><svg><use href="#i-db"/></svg> erp / бизнес-системы</div>
+      <div class="logos">
+        <span class="logo-tile"><svg><use href="#i-db"/></svg>1С:ERP</span><span class="logo-tile"><svg><use href="#i-db"/></svg>Галактика</span><span class="logo-tile"><svg><use href="#i-db"/></svg>Турбо</span><span class="logo-tile"><svg><use href="#i-db"/></svg>Битрикс24</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prices" class="reveal">
+  <div class="wrap">
+    <span class="mono">// цены</span>
+    <h2>Стоимость разработки</h2>
+    <p class="lead">Цены ориентировочные, формата «от». Финальная смета — после обсуждения ТЗ.</p>
+
+    <div class="priceblock">
+      <h3>Веб-разработка</h3>
+      <div class="prow"><span class="pname">Лендинг</span><span class="pval">от 35 000 ₽</span></div>
+      <div class="prow"><span class="pname">Сайт-визитка</span><span class="pval">от 60 000 ₽</span></div>
+      <div class="prow"><span class="pname">Корпоративный сайт</span><span class="pval">от 120 000 ₽</span></div>
+      <div class="prow"><span class="pname">Интернет-магазин / e-commerce</span><span class="pval">от 200 000 ₽</span></div>
+      <div class="prow"><span class="pname">SaaS / веб-приложение под ключ</span><span class="pval">от 500 000 ₽</span></div>
+
+      <h3>1С / ERP</h3>
+      <div class="prow"><span class="pname">Внедрение / доработка 1С:ERP</span><span class="pval">от 300 000 ₽</span></div>
+      <div class="prow"><span class="pname">Интеграция сайта с 1С</span><span class="pval">от 50 000 ₽</span></div>
+
+      <h3>DevOps / SRE</h3>
+      <div class="prow"><span class="pname">Настройка CI/CD</span><span class="pval">от 80 000 ₽</span></div>
+      <div class="prow"><span class="pname">Миграция в российское облако</span><span class="pval">от 150 000 ₽</span></div>
+      <div class="prow"><span class="pname">Сопровождение инфраструктуры (SRE)</span><span class="pval">от 60 000 ₽ / мес</span></div>
+
+      <h3>Генеративный ИИ — в контуре клиента</h3>
+      <div class="prow"><span class="pname">ИИ-чат-бот / ассистент</span><span class="pval">от 150 000 ₽</span></div>
+      <div class="prow"><span class="pname">Ассистент на данных клиента (RAG)</span><span class="pval">от 250 000 ₽</span></div>
+      <div class="prow"><span class="pname">Транскрибация и анализ аудио/видео</span><span class="pval">от 80 000 ₽</span></div>
+      <div class="prow"><span class="pname">Развёртывание локальной модели</span><span class="pval">от 200 000 ₽</span></div>
+
+      <h3>Мобильная разработка / Дизайн</h3>
+      <div class="prow"><span class="pname">Кроссплатформенное приложение (Flutter)</span><span class="pval">от 400 000 ₽</span></div>
+      <div class="prow"><span class="pname">UX/UI дизайн интерфейса</span><span class="pval">от 80 000 ₽</span></div>
+
+      <h3>Почасовые ставки</h3>
+      <div class="prow"><span class="pname">Кастомная разработка</span><span class="pval">от 3 000 ₽ / час</span></div>
+      <div class="prow"><span class="pname">Backend / API</span><span class="pval">от 3 500 ₽ / час</span></div>
+      <div class="prow"><span class="pname">1С / ERP · DevOps · ИИ · Дизайн</span><span class="pval ph">по запросу</span></div>
+    </div>
+    <p class="note">Работаем по договору, поэтапная оплата, передача исходного кода клиенту, гарантия на работы.</p>
+    <button class="btn btn-primary" style="margin-top:22px" onclick="openForm('Записаться на звонок')">Получить точную оценку</button>
+  </div>
+</section>
+
+<section class="faq reveal">
+  <div class="wrap">
+    <span class="mono">// faq</span>
+    <h2>Частые вопросы</h2>
+    <details><summary>Получу ли я исходный код?</summary><p>Да. Исходный код полностью передаётся вам. В формате эксклюзивной разработки — закрытый контур, весь код ваша собственность.</p></details>
+    <details><summary>Как формируется цена?</summary><p>Фиксированная смета после аудита и согласования ТЗ, поэтапная оплата. Цены на сайте — ориентир «от».</p></details>
+    <details><summary>Какие сроки?</summary><p>MVP — от нескольких недель, полноценная платформа — от нескольких месяцев. Точные сроки фиксируем в договоре.</p></details>
+    <details><summary>Работаете по договору и с НДС?</summary><p>Да, работаем официально по договору. Детали по НДС зависят от системы налогообложения — уточним при обсуждении.</p></details>
+    <details><summary>Что с поддержкой после запуска?</summary><p>Предлагаем сопровождение и развитие по SLA — отдельным договором на обслуживание.</p></details>
+    <details><summary>Работаете удалённо по всей России?</summary><p>Да, работаем со всей Россией удалённо.</p></details>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <div class="wrap">
+    <span class="mono">// контакты</span>
+    <h2>Расскажите о задаче</h2>
+    <p class="lead">Свяжемся, обсудим цели и предложим варианты решения.</p>
+    <form class="formwrap" onsubmit="submitForm(event)">
+      <input class="full" type="text" placeholder="Имя" required>
+      <input type="text" placeholder="Email или телефон" required>
+      <select id="ftype">
+        <option>Обсудить проект</option>
+        <option>Записаться на звонок</option>
+        <option>Задать вопрос</option>
+      </select>
+      <select>
+        <option value="">Бюджет (необязательно)</option>
+        <option>до 300 тыс ₽</option><option>300 тыс – 1 млн ₽</option><option>1–3 млн ₽</option><option>более 3 млн ₽</option>
+      </select>
+      <textarea class="full" placeholder="Сообщение"></textarea>
+      <label class="consent full"><input type="checkbox" id="consent" required> Я согласен на обработку персональных данных в соответствии с <a href="privacy.html" style="color:var(--accent)">политикой конфиденциальности</a></label>
+      <div class="full"><button class="btn btn-primary" type="submit">Отправить</button></div>
+      <div class="formmsg full" id="formmsg">✓ Спасибо! Заявка отправлена (демо — подключите Yandex Cloud Function).</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fcols">
+    <div>
+      <div class="footer-brand"><svg width="40" height="34"><use href="#mark"/></svg></div>
+      <p style="margin-top:14px;max-width:280px;font-size:14px">Веб-студия Инвенткод. Код пишут все — мы решаем вашу задачу.</p>
+    </div>
+    <div>
+      <div class="mono" style="margin-bottom:12px">// контакты</div>
+      <p>Телефон: +7 (999) 055-86-48</p>
+      <p>Email: inventcode@yandex.ru</p>
+    </div>
+    <div>
+      <div class="mono" style="margin-bottom:12px">// реквизиты</div>
+      <p>ООО «ИНВЕНТКОД»</p>
+      <p>ИНН 5700014270 · ОГРН 1255700002216</p>
+      <p style="font-size:13px">302006, г. Орёл, ул. Московская, д. 114А</p>
+      <p style="margin-top:12px"><a href="privacy.html">Политика обработки ПДн</a></p>
+      <p><a href="accreditation.html">Информация об аккредитованной ИТ-компании</a></p>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:36px;font-size:13px;color:#6b6b78">© 2026 Инвенткод. Все права защищены.</div>
+</footer>
+
+<!-- cookie banner -->
+<div id="cookie" style="position:fixed;bottom:16px;left:16px;right:16px;max-width:560px;margin:auto;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:center;justify-content:space-between;z-index:60;font-size:13px;color:var(--muted)">
+  <span>Мы используем cookie для работы сайта и аналитики.</span>
+  <button class="btn btn-primary" style="padding:8px 16px" onclick="document.getElementById('cookie').style.display='none'">Принять</button>
+</div>
+
+<script>
+function openForm(type){
+  document.getElementById('ftype').value=type;
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  document.getElementById('menu').classList.remove('open');
+}
+function submitForm(e){
+  e.preventDefault();
+  if(!document.getElementById('consent').checked)return;
+  document.getElementById('formmsg').style.display='block';
+  e.target.reset();
+}
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// counter
+const cio=new IntersectionObserver(es=>es.forEach(x=>{
+  if(x.isIntersecting){const el=x.target,t=+el.dataset.count;let n=0;const step=Math.ceil(t/30);
+    const i=setInterval(()=>{n+=step;if(n>=t){n=t;clearInterval(i)}el.textContent=n+'+'},30);cio.unobserve(el)}
+}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>
