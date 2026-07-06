@@ -34,7 +34,7 @@
 {"@type":"Question","name":"Получу ли я исходный код?","acceptedAnswer":{"@type":"Answer","text":"Да. Исходный код полностью передаётся вам. В формате эксклюзивной разработки — закрытый контур, весь код ваша собственность."}},
 {"@type":"Question","name":"Как формируется цена?","acceptedAnswer":{"@type":"Answer","text":"Фиксированная смета после аудита и согласования ТЗ, поэтапная оплата. Цены на сайте — ориентир «от»."}},
 {"@type":"Question","name":"Какие сроки?","acceptedAnswer":{"@type":"Answer","text":"MVP — от нескольких недель, полноценная платформа — от нескольких месяцев. Точные сроки фиксируем в договоре."}},
-{"@type":"Question","name":"Работаете по договору и с НДС?","acceptedAnswer":{"@type":"Answer","text":"Да, работаем официально по договору. Детали по НДС зависят от системы налогообложения — уточним при обсуждении."}},
+{"@type":"Question","name":"Работаете по договору?","acceptedAnswer":{"@type":"Answer","text":"Да, работаем официально по договору."}},
 {"@type":"Question","name":"Что с поддержкой после запуска?","acceptedAnswer":{"@type":"Answer","text":"Предлагаем сопровождение и развитие по SLA — отдельным договором на обслуживание."}},
 {"@type":"Question","name":"Работаете удалённо по всей России?","acceptedAnswer":{"@type":"Answer","text":"Да, работаем со всей Россией удалённо."}}
 ]}
@@ -42,7 +42,8 @@
 <!-- Аналитика: вставьте код Яндекс.Метрики / Google Analytics перед </head> -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   --bg:#0A0A0B; --bg2:#111114; --card:#16161A; --border:#26262C;
@@ -74,7 +75,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.78);backdrop-f
 .menu a{color:var(--muted);font-size:15px;font-weight:500;transition:.2s}
 .menu a:hover{color:var(--text)}
 .nav .btn{padding:10px 18px}
-.burger{display:none;background:none;border:0;color:var(--text);font-size:26px;cursor:pointer}
+.burger{display:none;background:none;border:0;color:var(--text);font-size:26px;cursor:pointer;padding:9px 11px;margin:-9px -11px}
 
 /* hero */
 .hero{position:relative;padding:120px 0 110px;border-top:0;overflow:hidden}
@@ -132,7 +133,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.78);backdrop-f
 .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:40px}
 .step{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;position:relative}
 .step::before{counter-increment:s;content:"0" counter(s);font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:13px}
-.step h4{margin-top:8px;font-size:15px;font-weight:700}
+.step h3{margin-top:8px;font-size:15px;font-weight:700}
 
 /* privacy highlight */
 .highlight{margin-top:26px;background:linear-gradient(120deg,var(--accent-dim),transparent);border:1px solid var(--accent);border-radius:14px;padding:26px}
@@ -242,7 +243,7 @@ footer a:hover{color:var(--accent)}
       <li><a href="#contact">Контакты</a></li>
     </ul>
     <button class="btn btn-primary desk" onclick="openForm('Обсудить проект')">Обсудить проект</button>
-    <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    <button class="burger" aria-label="Меню" aria-controls="menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
   </div>
 </header>
 
@@ -406,12 +407,12 @@ footer a:hover{color:var(--accent)}
     <span class="mono">// процесс</span>
     <h2>Как мы работаем</h2>
     <div class="steps">
-      <div class="step"><h4>Аналитика</h4></div>
-      <div class="step"><h4>Проектирование</h4></div>
-      <div class="step"><h4>Дизайн</h4></div>
-      <div class="step"><h4>Разработка</h4></div>
-      <div class="step"><h4>Тестирование</h4></div>
-      <div class="step"><h4>Поддержка</h4></div>
+      <div class="step"><h3>Аналитика</h3></div>
+      <div class="step"><h3>Проектирование</h3></div>
+      <div class="step"><h3>Дизайн</h3></div>
+      <div class="step"><h3>Разработка</h3></div>
+      <div class="step"><h3>Тестирование</h3></div>
+      <div class="step"><h3>Поддержка</h3></div>
     </div>
   </div>
 </section>
@@ -469,7 +470,7 @@ footer a:hover{color:var(--accent)}
       <div class="prow"><span class="pname">Сайт-визитка</span><span class="pval">от 60 000 ₽</span></div>
       <div class="prow"><span class="pname">Корпоративный сайт</span><span class="pval">от 120 000 ₽</span></div>
       <div class="prow"><span class="pname">Интернет-магазин / e-commerce</span><span class="pval">от 200 000 ₽</span></div>
-      <div class="prow"><span class="pname">SaaS / веб-приложение под ключ</span><span class="pval">от 500 000 ₽</span></div>
+      <div class="prow"><span class="pname">SaaS / веб-приложение (полный цикл)</span><span class="pval">от 500 000 ₽</span></div>
 
       <h3>1С / ERP</h3>
       <div class="prow"><span class="pname">Внедрение / доработка 1С:ERP</span><span class="pval">от 300 000 ₽</span></div>
@@ -507,7 +508,7 @@ footer a:hover{color:var(--accent)}
     <details><summary>Получу ли я исходный код?</summary><p>Да. Исходный код полностью передаётся вам. В формате эксклюзивной разработки — закрытый контур, весь код ваша собственность.</p></details>
     <details><summary>Как формируется цена?</summary><p>Фиксированная смета после аудита и согласования ТЗ, поэтапная оплата. Цены на сайте — ориентир «от».</p></details>
     <details><summary>Какие сроки?</summary><p>MVP — от нескольких недель, полноценная платформа — от нескольких месяцев. Точные сроки фиксируем в договоре.</p></details>
-    <details><summary>Работаете по договору и с НДС?</summary><p>Да, работаем официально по договору. Детали по НДС зависят от системы налогообложения — уточним при обсуждении.</p></details>
+    <details><summary>Работаете по договору?</summary><p>Да, работаем официально по договору.</p></details>
     <details><summary>Что с поддержкой после запуска?</summary><p>Предлагаем сопровождение и развитие по SLA — отдельным договором на обслуживание.</p></details>
     <details><summary>Работаете удалённо по всей России?</summary><p>Да, работаем со всей Россией удалённо.</p></details>
   </div>
@@ -519,21 +520,21 @@ footer a:hover{color:var(--accent)}
     <h2>Расскажите о задаче</h2>
     <p class="lead">Свяжемся, обсудим цели и предложим варианты решения.</p>
     <form class="formwrap" onsubmit="submitForm(event)">
-      <input class="full" type="text" placeholder="Имя" required>
-      <input type="text" placeholder="Email или телефон" required>
-      <select id="ftype">
+      <input class="full" type="text" name="name" placeholder="Имя" aria-label="Имя" autocomplete="name" required>
+      <input type="text" name="contact" placeholder="Email или телефон" aria-label="Email или телефон" required>
+      <select id="ftype" name="type" aria-label="Тип обращения">
         <option>Обсудить проект</option>
         <option>Записаться на звонок</option>
         <option>Задать вопрос</option>
       </select>
-      <select>
+      <select name="budget" aria-label="Бюджет">
         <option value="">Бюджет (необязательно)</option>
         <option>до 300 тыс ₽</option><option>300 тыс – 1 млн ₽</option><option>1–3 млн ₽</option><option>более 3 млн ₽</option>
       </select>
-      <textarea class="full" placeholder="Сообщение"></textarea>
+      <textarea class="full" name="message" placeholder="Сообщение" aria-label="Сообщение"></textarea>
       <label class="consent full"><input type="checkbox" id="consent" required> Я согласен на обработку персональных данных в соответствии с <a href="privacy.html" style="color:var(--accent)">политикой конфиденциальности</a></label>
       <div class="full"><button class="btn btn-primary" type="submit">Отправить</button></div>
-      <div class="formmsg full" id="formmsg">✓ Спасибо! Заявка отправлена (демо — подключите Yandex Cloud Function).</div>
+      <div class="formmsg full" id="formmsg">✓ Спасибо! Заявка отправлена.</div>
     </form>
   </div>
 </section>
@@ -558,7 +559,7 @@ footer a:hover{color:var(--accent)}
       <p><a href="accreditation.html">Информация об аккредитованной ИТ-компании</a></p>
     </div>
   </div>
-  <div class="wrap" style="margin-top:36px;font-size:13px;color:#6b6b78">© 2026 Инвенткод. Все права защищены.</div>
+  <div class="wrap" style="margin-top:36px;font-size:13px;color:var(--muted)">© 2026 Инвенткод. Все права защищены.</div>
 </footer>
 
 <!-- cookie banner -->
@@ -568,10 +569,16 @@ footer a:hover{color:var(--accent)}
 </div>
 
 <script>
+function toggleMenu(btn){
+  const m=document.getElementById('menu');
+  m.classList.toggle('open');
+  btn.setAttribute('aria-expanded',m.classList.contains('open'));
+}
 function openForm(type){
   document.getElementById('ftype').value=type;
   document.getElementById('contact').scrollIntoView({behavior:'smooth'});
   document.getElementById('menu').classList.remove('open');
+  document.querySelector('.burger').setAttribute('aria-expanded','false');
 }
 function submitForm(e){
   e.preventDefault();
