@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://inventcode.io/sitemap.xml
+Sitemap: https://invcode.ru/sitemap.xml
